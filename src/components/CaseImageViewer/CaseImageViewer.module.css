@@ -1,0 +1,21 @@
+/* src/components/CaseImageViewer/CaseImageViewer.module.css */
+
+.imageWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0; /* Убрали отступы, чтобы картинка упиралась в края */
+  background-color: #000; 
+}
+
+.caseImage {
+  width: 100vw; 
+  max-width: 100%; 
+  height: auto;
+  display: block;
+  object-fit: contain;
+  
+  /* Мягкое, но четкое сглаживание */
+  image-rendering: high-quality;
+  image-rendering: auto; /* Фолбэк для старых браузеров */
+}

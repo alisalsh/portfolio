@@ -1,0 +1,86 @@
+/* src/index.css */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  cursor: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html {
+  scrollbar-gutter: stable; /* Заставляет браузер всегда оставлять место под скроллбар */
+}
+
+body {
+  font-family: 'Onest', Arial, sans-serif; /* Arial есть везде и выглядит предсказуемо */
+}
+body {
+  min-height: 100vh;
+  font-family: 'Onest', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  color: #000000;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  cursor: none; 
+  overflow-x: hidden;
+}
+
+a, button, input, textarea, .square {
+  cursor: none !important; 
+}
+
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-white-50: rgba(255, 255, 255, 0.5);
+  --container-max: 1880px;
+  --container-padding: 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 0px; 
+  padding: 0 20px; 
+  width: 100%;
+}
+
+
+::selection {
+  background-color: #F8C7DC; /* Нежно-розовый цвет фона (LightPink) */
+  color: #000000;            /* Черный цвет текста */
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 8px; 
+    padding-right: 8px;
+  }
+  
+  .layout-grid {
+    column-gap: 0px;
+    padding: 0 4px;
+    align-content: start; /* Не дает строкам растягиваться на всю высоту */
+  }
+}
+

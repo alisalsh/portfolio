@@ -1,0 +1,125 @@
+/* src/components/Contacts/Contacts.module.css */
+
+.contactsSection {
+  background-color: #000000; 
+  color: #ffffff; 
+  padding-top: 40px;
+  padding-bottom: 200px;
+  scroll-margin-top: 10px;
+  cursor: none; 
+  
+  position: relative;
+  overflow: hidden; 
+}
+
+.contactsSection * { cursor: none; }
+
+.contactsGrid {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 24px;
+  position: relative; 
+  z-index: 2; 
+}
+
+.contactCard {
+  position: relative; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between;
+  aspect-ratio: 1 / 1; 
+  padding: 32px; 
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  background-color: #000; 
+}
+
+.cardLink { position: absolute; inset: 0; z-index: 1; }
+.contactCard:hover { border-color: rgba(255, 255, 255, 0.5); }
+
+.cardHeader {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  position: relative; z-index: 2;
+}
+
+.cardLabel {
+  font-size: 12px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.05em; color: #888; 
+}
+
+.copyBtn {
+  position: relative; z-index: 2; background: none; border: none;
+  color: #888; font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.05em; padding: 0; font-family: inherit;
+  transition: color 0.2s ease;
+}
+
+.copyBtn:hover { color: #ffffff; }
+
+.cardValue {
+  position: relative; z-index: 0; font-size: 20px; font-weight: 500;
+  color: #ffffff; letter-spacing: -0.01em;
+}
+
+/* === SVG ТЕКСТ === */
+.svgWrapper {
+  position: absolute;
+  bottom: -18px; 
+  right: -24px; 
+  z-index: 1; 
+  pointer-events: none; 
+}
+
+.getInTouchSvg {
+  width: 730px;
+  height: auto;
+  display: block;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+@media (max-width: 768px) {
+  .contactsSection { 
+    padding: 40px 0; 
+    scroll-margin-top: 60px;
+  }
+
+  /* ОСТАВЛЯЕМ ДВЕ КОЛОНКИ */
+  .contactsGrid {
+    grid-column: 1 / 5; 
+    grid-template-columns: 1fr 1fr; /* Две колонки */
+    gap: 8px; /* Маленький отступ между ними */
+    justify-items: center; 
+    padding-bottom: 40px; 
+    padding-top: 40px; 
+    z-index: 2;
+  }
+
+  .contactCard {
+    width: 100%; 
+    aspect-ratio: 1 / 1; /* Идеальные квадраты */
+    padding: 10px; /* Уменьшаем отступы внутри */
+    min-height: auto;
+  }
+
+  .cardLabel, .copyBtn { font-size: 6px; }
+  .cardValue { font-size: 8px; margin-top: 4px; word-break: break-all; }
+
+  .svgWrapper {
+    top: -4px;
+    right: -1px;
+  }
+
+  .getInTouchSvg {
+    width: 50vw; 
+    max-width: 250px;
+  }
+}
+
+
+/* В конец Contacts.module.css */
+.contactsGrid > div {
+  display: flex;
+  width: 100%;
+}
