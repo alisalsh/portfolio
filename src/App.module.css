@@ -79,7 +79,7 @@
 /* === МОБИЛЬНАЯ ВЕРСИЯ === */
 @media (max-width: 768px) {
   .casesSection { 
-    padding: 40px 0; 
+    padding: 40px 20px; 
     scroll-margin-top: 60px;
   }
 

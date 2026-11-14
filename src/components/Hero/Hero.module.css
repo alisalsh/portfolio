@@ -112,7 +112,7 @@
 
 /* === МОБИЛЬНАЯ ВЕРСИЯ === */
 @media (max-width: 768px) {
-  .hero { padding-top: 30px; padding-bottom: 20px; min-height: auto; display: block; }
+  .hero { padding-top: 30px; padding-bottom: 20px; padding-right: 20px; padding-left: 20px; min-height: auto; display: block; }
   
   .bgImageWrapper { top: -2%; left: -10%; }
   .bgImage { width: 60vw; opacity: 0.15; }
@@ -120,7 +120,7 @@
   .heroIntro {
     grid-column: 1 / 5; 
     grid-row: auto;
-    padding: 20px; 
+    padding: 20px 0 20px 0; 
     margin-bottom: 4px; 
     background-color: rgba(255, 255, 255, 0.9); 
   }

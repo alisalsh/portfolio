@@ -21,21 +21,14 @@
   width: 100%;
   margin-bottom: 190px; 
   
-  /* АНИМАЦИЯ ПРИ СКРОЛЛЕ (нативный CSS) */
   animation: slideUpFade linear both;
   animation-timeline: view();
   animation-range: entry 10% cover 30%;
 }
 
 @keyframes slideUpFade {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .experienceText, .skillsInline, .cvColumn {
@@ -138,10 +131,9 @@
 /* === МОБИЛЬНАЯ ВЕРСИЯ === */
 @media (max-width: 768px) {
   .aboutSection { 
-    padding: 40px 0 20px; 
+    padding: 40px 0; 
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
   }
 
   .aboutSection .container {
@@ -153,30 +145,21 @@
     flex: 1;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto 1fr auto; 
-    align-content: stretch; 
+    gap: 24px; 
   }
 
+  /* ОБЕРТКУ ИНФО РОУ РАСТВОРЯЕМ */
   .infoRow {
-    grid-column: 1 / 5; 
-    grid-row: 1 / 2;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 40px; 
-    align-items: flex-start; 
-    /* На мобилке отключаем анимацию */
-    animation: none;
-    opacity: 1;
-    transform: none;
+    display: contents; 
   }
 
-  .experienceText, .skillsInline {
-    font-size: 9px;
-  }
-
+  /* 1. ССЫЛКА НА CV: Теперь на самом верху */
   .cvColumn {
-    align-items: flex-start;
-    margin-top: 18px; 
+    grid-column: 1 / 5;
+    grid-row: 1 / 2; /* <-- Поставили 1-й ряд */
+    align-items: center; 
+    margin-bottom: 0;
+    padding-bottom: 40px;
   }
 
   .cvLink { 
@@ -185,7 +168,7 @@
     text-decoration: underline;
     text-underline-offset: 4px;
     font-weight: 700;
-    font-size: 10px;
+    font-size: 12px;
     color: #555;
     background: transparent;
     width: auto; 
@@ -196,32 +179,66 @@
     color: #555;
   }
 
-  .mainText {
-    grid-column: 1 / 4; 
-    grid-row: 2 / 3;
-    font-size: 18px; 
-    margin-bottom: 16px;
-    align-self: start;
-    padding-right: 10%;
-  }
-
-  .secondaryText {
-    grid-column: 2 / 4; 
-    grid-row: 3 / 4;
-    font-size: 6px;
-    align-self: start;
-    margin-left: 0;
-  }
-
+  /* 2. КАРТИНКА: Теперь под ссылкой */
   .imageWrapper {
-    grid-column: 4 / 5; 
-    grid-row: 2 / 4; 
-    padding-left: 8px;
+    grid-column: 1 / 5; 
+    grid-row: 2 / 3; /* <-- Поставили 2-й ряд */
+    justify-content: center; 
+    padding-left: 0;
     margin-bottom: 0;
-    justify-content: flex-end;
+    padding-bottom: 40px;
   }
 
   .imageContainer {
     width: 100%; 
+    max-width: 320px; 
   }
+
+  /* 3. ОПЫТ И ХАРДЫ (в одном ряду) */
+  /* 3. ОПЫТ (по центру, под картинкой) */
+  .experienceText {
+    grid-column: 1 / 5; /* На всю ширину */
+    grid-row: 3 / 4;
+    align-items: center; /* Центрируем текст */
+    text-align: center;
+    font-size: 12px;
+    line-height: 1;
+    padding-right: 0; 
+    padding-bottom: 20px;
+  }
+
+  /* 4. ХАРДЫ (по центру, под опытом) */
+  .skillsInline {
+    grid-column: 1 / 5; /* На всю ширину */
+    grid-row: 4 / 5;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 320px; 
+    margin: 0 auto; /* ВОТ ЭТО ЦЕНТРИРУЕТ БЛОК */
+    padding: 0;
+    padding-bottom: 60px;
+  }
+
+  /* 5. ОСНОВНОЙ ТЕКСТ */
+  .mainText {
+    grid-column: 1 / 5; 
+    grid-row: 5 / 6;
+    font-size: 22px; 
+    margin-bottom: 0;
+    padding-right: 0;
+    padding-left: 20px;
+    padding-bottom: 40px;
+  }
+
+  /* 6. ДОП. ТЕКСТ */
+  .secondaryText {
+    grid-column: 2 / 5; 
+    grid-row: 6 / 7;
+    font-size: 10px;
+    line-height: 1.4;
+    margin-left: 0;
+        padding-right: 20px;
+  }
+
 }

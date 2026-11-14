@@ -18,7 +18,13 @@ export const Cursor = () => {
   const [isDarkSection, setIsDarkSection] = useState(false);
   const [cardTheme, setCardTheme] = useState<'light' | 'dark' | null>(null);
 
+  // Проверяем, является ли устройство мобильным/тач
+  const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+
   useEffect(() => {
+    // ЕСЛИ ЭТО МОБИЛКА - НИЧЕГО НЕ ЗАПУСКАЕМ
+    if (isTouchDevice) return;
+
     const mainCursor = mainCursorRef.current;
     const trail = trailRef.current;
     if (!mainCursor || !trail) return;
@@ -34,16 +40,6 @@ export const Cursor = () => {
       mainCursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
     };
 
-    const handleTouchMove = (e: TouchEvent) => {
-      const touch = e.touches[0];
-      mouseX = touch.clientX;
-      mouseY = touch.clientY;
-      mainCursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-    };
-
-    const handleTouchStart = () => setIsVisible(true);
-    const handleTouchEnd = () => setTimeout(() => setIsVisible(false), 800);
-
     const animateTrail = () => {
       trailX += (mouseX - trailX) * 0.15;
       trailY += (mouseY - trailY) * 0.15;
@@ -58,8 +54,6 @@ export const Cursor = () => {
     const handleMouseEnter = () => setIsVisible(true);
 
     const updateHoverState = (target: HTMLElement | null) => {
-      if (window.matchMedia('(pointer: coarse)').matches) return;
-
       if (!target) {
         setIsHovering(false); setIsCardHovering(false); setIsCVHovering(false);
         setIsCaseHovering(false); setIsLinkHovering(false); setIsLockHovering(false);
@@ -94,12 +88,12 @@ export const Cursor = () => {
         setIsCopyHovering(true); 
       } else if (linkElement) {
         setIsLinkHovering(true);
-        theme = (linkElement.getAttribute('data-theme') as 'light' | 'dark') || 'light'; // <--- ФИКС ЗДЕСЬ
+        theme = (linkElement.getAttribute('data-theme') as 'light' | 'dark') || 'light';
       } else if (lockElement) {
         setIsLockHovering(true);
       } else if (caseElement) {
         setIsCaseHovering(true);
-        theme = (caseElement.getAttribute('data-theme') as 'light' | 'dark') || 'light'; // <--- ФИКС ЗДЕСЬ
+        theme = (caseElement.getAttribute('data-theme') as 'light' | 'dark') || 'light';
       } else if (navLinkElement) {
         setIsNavHovering(true);
       } else if (target.closest('a') || target.closest('button') || target.closest('[data-cursor="hover"]')) {
@@ -124,10 +118,6 @@ export const Cursor = () => {
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
 
-    window.addEventListener('touchmove', handleTouchMove, { passive: true });
-    window.addEventListener('touchstart', handleTouchStart, { passive: true });
-    window.addEventListener('touchend', handleTouchEnd);
-
     return () => {
       window.removeEventListener('mousemove', moveMouse);
       window.removeEventListener('mousedown', handleMouseDown);
@@ -136,12 +126,11 @@ export const Cursor = () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
-
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, []);
+  }, [isTouchDevice]);
+
+  // ЕСЛИ ЭТО МОБИЛКА - НЕ РЕНДЕРИМ КУРСОР ВООБЩЕ
+  if (isTouchDevice) return null;
 
   const isAnyBigCursor = isCardHovering || isCVHovering || isCaseHovering || isLinkHovering || isLockHovering || isNavHovering || isCopyHovering;
   const isDark = isAnyBigCursor && cardTheme === 'dark';
@@ -164,7 +153,7 @@ export const Cursor = () => {
     isLockHovering ? styles.lockHovering : '',
     isNavHovering ? styles.navHovering : '',
     isCopyHovering ? styles.copyHovering : '',
-    isDark ? styles.cursorInnerDark : '' // <-- Добавляем белый стиль
+    isDark ? styles.cursorInnerDark : ''
   ].filter(Boolean).join(' ');
 
   const trailClasses = [

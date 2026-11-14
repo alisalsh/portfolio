@@ -42,12 +42,12 @@ export const Hero = () => {
               {/* Текст под ним */}
               <div className={styles.heroDescriptionWrapper}>
                 <p className={styles.heroDescription}>
-                  Работаю с B2C-продуктами, проектирую интерфейсы, 
-                  <br className={styles.desktopBreak} /> провожу UX-исследования и собираю дизайн-системы
+                  Работаю с B2C-продуктами, проектирую интерфейсы, 
+                  <br className={styles.desktopBreak} /> провожу UX‑исследования и собираю дизайн-системы
                 </p>
                 <p className={styles.heroDescription}>
-                  Есть опыт в графическом дизайне и разработке упаковки 
-                  <br className={styles.desktopBreak} /> для FMCG-бренда
+                  Есть опыт в графическом дизайне и разработке упаковки 
+                  <br className={styles.desktopBreak} /> для FMCG-бренда
                 </p>
               </div>
 
