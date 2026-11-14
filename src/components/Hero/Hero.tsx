@@ -5,7 +5,6 @@ import cases from '../../assets/cases.svg';
 import cvSvg from '../../assets/cv.svg';
 import noncom from '../../assets/noncom.svg';
 import contact from '../../assets/contact.svg';
-import pp from '../../assets/pp.svg'; // <-- Возвращаем картинку
 
 export const Hero = () => {
   const scrollTo = (id: string) => {
