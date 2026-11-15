@@ -98,7 +98,7 @@
 /* МОБИЛЬНАЯ ВЕРСИЯ */
 @media (max-width: 768px) {
   .timeline {
-    --circle-size: 8px;
+    --circle-size: 12px;
     /* ТОЛЩИНА ЛИНИИ 1px (вместо 0.2px) */
     --line-width: 1px; 
     --circle-border-width: 1px;
