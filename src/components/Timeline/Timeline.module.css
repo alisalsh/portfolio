@@ -98,11 +98,11 @@
 /* МОБИЛЬНАЯ ВЕРСИЯ */
 @media (max-width: 768px) {
   .timeline {
-    /* УВЕЛИЧИЛИ КРУЖОК С 8 ДО 14 */
-    --circle-size: 14px;
-    --line-width: 1px;
-    --circle-border-width: 1.5px; /* Чуть толще обводка, чтобы было видно */
-    --text-offset: 10px; /* Немного увеличили отступ текста от кружка */
+    --circle-size: 8px;
+    /* ТОЛЩИНА ЛИНИИ 1px (вместо 0.2px) */
+    --line-width: 1px; 
+    --circle-border-width: 1px;
+    --text-offset: 8px; 
     height: auto; 
   }
 
@@ -112,10 +112,14 @@
     align-items: flex-start; 
   }
 
+  .marker {
+    padding-top: 2px; 
+  }
+
   .line {
     margin-top: 4px;
     margin-bottom: 4px;
-    width: 0.2px;
+    /* УБРАЛИ width: 0.2px, теперь толщина берется из переменной --line-width */
     min-height: 50px; 
   }
 
