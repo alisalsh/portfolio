@@ -38,7 +38,7 @@
   width: var(--circle-size);
   height: var(--circle-size);
   border-radius: 50%;
-  border: 1px solid var(--color-black); 
+  border: var(--circle-border-width) solid var(--color-black); 
   background-color: var(--color-white);
   z-index: 2;
   flex-shrink: 0;
@@ -98,26 +98,27 @@
 /* МОБИЛЬНАЯ ВЕРСИЯ */
 @media (max-width: 768px) {
   .timeline {
-    --circle-size: 8px;
+    /* УВЕЛИЧИЛИ КРУЖОК С 8 ДО 14 */
+    --circle-size: 14px;
     --line-width: 1px;
-    --circle-border-width: 1px;
-    --text-offset: 6px;
+    --circle-border-width: 1.5px; /* Чуть толще обводка, чтобы было видно */
+    --text-offset: 10px; /* Немного увеличили отступ текста от кружка */
     height: auto; 
-    margin-bottom: 16px;
   }
 
   .timelineItem { 
     min-height: 60px; 
-    flex-grow: 0;
+    flex-grow: 1; 
+    align-items: flex-start; 
   }
 
   .line {
     margin-top: 4px;
     margin-bottom: 4px;
     width: 0.2px;
+    min-height: 50px; 
   }
 
-  /* СКРЫВАЕМ ЛИНИЮ ТОЛЬКО У ТЕХ, КОМУ ПЕРЕДАЛИ ПРОПС */
   .hideLineMobile {
     display: none;
   }
@@ -126,6 +127,19 @@
     display: none; 
   }
 
-  .company { font-size: 8px; white-space: nowrap; }
-  .year { font-size: 4px; }
+  .textContainer {
+    padding-top: 0;
+  }
+
+  .company { 
+    font-size: 14px; 
+    white-space: nowrap; 
+    line-height: 1.2; 
+  }
+  
+  .year { 
+    font-size: 8px; 
+    line-height: 1.2;
+    margin-top: 0;
+  }
 }

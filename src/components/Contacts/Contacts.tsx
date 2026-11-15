@@ -18,6 +18,29 @@ export const Contacts = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // Функция для перехода по ссылке с проверкой на выделение текста
+  const handleCardClick = (
+    e: React.MouseEvent, 
+    link: string, 
+    isExternal: boolean = false
+  ) => {
+    // Проверяем, есть ли выделенный текст на странице прямо сейчас
+    const selection = window.getSelection();
+    
+    // Если текст выделен (например, пользователь тянет мышку, чтобы скопировать почту), 
+    // мы не переходим по ссылке
+    if (selection && selection.toString().trim().length > 0) {
+      return;
+    }
+
+    // Если выделения нет — это обычный клик, переходим по ссылке
+    if (isExternal) {
+      window.open(link, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.href = link;
+    }
+  };
+
   return (
     <section 
       id="contacts" 
@@ -28,22 +51,38 @@ export const Contacts = () => {
         <div className="layout-grid">
           
           <div className={styles.contactsGrid}>
-            <div className={styles.contactCard} data-cursor="link">
-              <a href="mailto:alisa.lushina@gmail.com" className={styles.cardLink} data-cursor="link" aria-label="Написать на почту" />
+            {/* Карточка Почты */}
+            <div 
+              className={styles.contactCard} 
+              data-cursor="link"
+              onClick={(e) => handleCardClick(e, 'mailto:alisa.lushina@gmail.com')}
+            >
               <div className={styles.cardHeader}>
                 <span className={styles.cardLabel}>Почта</span>
-                <button className={styles.copyBtn} onClick={(e) => copyToClipboard('alisa.lushina@gmail.com', setCopiedEmail, e)} data-cursor="copy">
+                <button 
+                  className={styles.copyBtn} 
+                  onClick={(e) => copyToClipboard('alisa.lushina@gmail.com', setCopiedEmail, e)} 
+                  data-cursor="copy"
+                >
                   {copiedEmail ? 'Скопировано' : 'Копировать'}
                 </button>
               </div>
               <span className={styles.cardValue}>alisa.lushina@gmail.com</span>
             </div>
 
-            <div className={styles.contactCard} data-cursor="link">
-              <a href="https://t.me/alisa_lssh" target="_blank" rel="noopener noreferrer" className={styles.cardLink} data-cursor="link" aria-label="Написать в Telegram" />
+            {/* Карточка Telegram */}
+            <div 
+              className={styles.contactCard} 
+              data-cursor="link"
+              onClick={(e) => handleCardClick(e, 'https://t.me/alisa_lssh', true)}
+            >
               <div className={styles.cardHeader}>
                 <span className={styles.cardLabel}>Telegram</span>
-                <button className={styles.copyBtn} onClick={(e) => copyToClipboard('@alisa_lssh', setCopiedTg, e)} data-cursor="copy">
+                <button 
+                  className={styles.copyBtn} 
+                  onClick={(e) => copyToClipboard('@alisa_lssh', setCopiedTg, e)} 
+                  data-cursor="copy"
+                >
                   {copiedTg ? 'Скопировано' : 'Копировать'}
                 </button>
               </div>

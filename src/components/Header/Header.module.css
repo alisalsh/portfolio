@@ -28,19 +28,8 @@
 
 /* МОБИЛЬНАЯ ВЕРСИЯ */
 @media (max-width: 768px) {
+  /* ПОЛНОСТЬЮ СКРЫВАЕМ ХЕДЕР НА МОБИЛКЕ */
   .header {
-    padding: 16px 0; /* Меньше высота шапки */
-  }
-
-  .logo {
-    font-size: 10px;
-  }
-
-  .nav {
-    gap: 8px;
-  }
-
-  .nav a {
-    font-size: 8px;
+    display: none; 
   }
 }

@@ -15,7 +15,7 @@ interface CaseCardProps {
   hoveredCardId?: string | null; 
   metaText?: string;
   imageSrc?: string; 
-  hoverImageSrc?: string; // <-- Новый пропс для картинки при наведении
+  hoverImageSrc?: string;
   onCardHover?: (cardId: string | null, timelineId: string | null) => void;
 }
 
@@ -31,7 +31,7 @@ export const CaseCard = ({
   hoveredCardId,
   metaText = 'UI/UX',
   imageSrc, 
-  hoverImageSrc, // <-- Добавили
+  hoverImageSrc,
   onCardHover
 }: CaseCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -83,7 +83,6 @@ export const CaseCard = ({
           </div>
         )}
 
-        {/* НОВЫЙ БЛОК: Картинка при наведении */}
         {hoverImageSrc && !isLocked && !isRedacted && (
           <div className={styles.hoverImageWrapper}>
             <img src={hoverImageSrc} alt="Обложка кейса" className={styles.hoverImage} />

@@ -145,21 +145,19 @@
     flex: 1;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px; 
+    gap: 0; /* Убираем общий gap, будем задавать отступы точечно */
   }
 
-  /* ОБЕРТКУ ИНФО РОУ РАСТВОРЯЕМ */
   .infoRow {
     display: contents; 
   }
 
-  /* 1. ССЫЛКА НА CV: Теперь на самом верху */
+  /* 1. ССЫЛКА НА CV */
   .cvColumn {
     grid-column: 1 / 5;
-    grid-row: 1 / 2; /* <-- Поставили 1-й ряд */
+    grid-row: 1 / 2; 
     align-items: center; 
-    margin-bottom: 0;
-    padding-bottom: 40px;
+    margin-bottom: 24px;
   }
 
   .cvLink { 
@@ -173,62 +171,62 @@
     background: transparent;
     width: auto; 
   }
-  
-  .cvLink:hover {
-    transform: none; 
-    color: #555;
-  }
 
-  /* 2. КАРТИНКА: Теперь под ссылкой */
+  /* 2. КАРТИНКА */
   .imageWrapper {
     grid-column: 1 / 5; 
-    grid-row: 2 / 3; /* <-- Поставили 2-й ряд */
+    grid-row: 2 / 3; 
     justify-content: center; 
     padding-left: 0;
-    margin-bottom: 0;
-    padding-bottom: 40px;
+    margin-bottom: 24px; /* Отступ от фото до текста */
   }
 
   .imageContainer {
     width: 100%; 
-    max-width: 320px; 
+    max-width: 320px; /* Ширина фото на мобилке */
   }
 
-  /* 3. ОПЫТ И ХАРДЫ (в одном ряду) */
-  /* 3. ОПЫТ (по центру, под картинкой) */
+  /* 3. ОПЫТ И ХАРДЫ (Выровнены по левому краю фото) */
   .experienceText {
-    grid-column: 1 / 5; /* На всю ширину */
+    grid-column: 1 / 5; 
     grid-row: 3 / 4;
-    align-items: center; /* Центрируем текст */
-    text-align: center;
-    font-size: 12px;
-    line-height: 1;
-    padding-right: 0; 
-    padding-bottom: 20px;
-  }
-
-  /* 4. ХАРДЫ (по центру, под опытом) */
-  .skillsInline {
-    grid-column: 1 / 5; /* На всю ширину */
-    grid-row: 4 / 5;
-    text-align: center;
+    align-items: flex-start; 
+    text-align: left;
     font-size: 12px;
     line-height: 1.4;
-    max-width: 320px; 
-    margin: 0 auto; /* ВОТ ЭТО ЦЕНТРИРУЕТ БЛОК */
-    padding: 0;
-    padding-bottom: 60px;
+    margin: 0;
+    /* Центрируем блок шириной 320px и прижимаем текст влево */
+    width: 320px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
+  }
+
+  .skillsInline {
+    grid-column: 1 / 5; 
+    grid-row: 4 / 5;
+    text-align: left; 
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0;
+    /* Тот же трюк: ширина 320px, центрирование блока, текст влево */
+    width: 320px; 
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 90px;
   }
 
   /* 5. ОСНОВНОЙ ТЕКСТ */
   .mainText {
     grid-column: 1 / 5; 
     grid-row: 5 / 6;
-    font-size: 22px; 
-    margin-bottom: 0;
-    padding-right: 0;
-    padding-left: 20px;
-    padding-bottom: 40px;
+    font-size: 28px; 
+    margin-bottom: 16px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 24px;
   }
 
   /* 6. ДОП. ТЕКСТ */
@@ -238,7 +236,7 @@
     font-size: 10px;
     line-height: 1.4;
     margin-left: 0;
-        padding-right: 20px;
+    padding-right: 6px;
+    margin-bottom: 90px;
   }
-
 }
