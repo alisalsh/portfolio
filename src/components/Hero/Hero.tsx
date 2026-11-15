@@ -7,7 +7,20 @@ import noncom from '../../assets/noncom.svg';
 import contact from '../../assets/contact.svg';
 
 export const Hero = () => {
+  // Универсальная функция для скролла
   const scrollTo = (id: string) => {
+    // Для "Некоммерческих" нужно проверять ширину экрана, чтобы скроллить к правильному блоку
+    if (id === 'non-commercial') {
+      const isMobile = window.innerWidth <= 768;
+      const targetId = isMobile ? 'non-commercial-mobile' : 'non-commercial-desktop';
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return;
+    }
+
+    // Для остальных ссылок (Кейсы, Обо мне, Контакты) все работает как раньше
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });

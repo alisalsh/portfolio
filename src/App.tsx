@@ -67,7 +67,7 @@ export default function App() {
                     <div className={styles.fillerLine}></div>
                   </div>
 
-                  <h2 className={styles.sidebarTitle} id="non-commercial">
+                  <h2 className={styles.sidebarTitle} id="non-commercial-desktop">
                     Некоммерческие проекты
                   </h2>
 
@@ -114,7 +114,7 @@ export default function App() {
                 </div>
 
                 <div className={styles.mobileSection}>
-                  <h2 className={styles.sidebarTitle} id="non-commercial">Некоммерческие проекты</h2>
+                  <h2 className={styles.sidebarTitle} id="non-commercial-mobile">Некоммерческие проекты</h2>
                   <Timeline activeId={activeTimelineId} onHover={handleTimelineHover} items={[{ id: 'crypto', title: 'ООО КРИПТОПЛАТФОРМА', year: '2025-2026' }, { id: 'vkus', title: 'АО ВКУСВИЛЛ', year: '2025' }]} />
                 </div>
 
