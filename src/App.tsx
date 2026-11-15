@@ -8,6 +8,7 @@ import styles from './App.module.css';
 import { About } from './components/About/About';
 import { Contacts } from './components/Contacts/Contacts';
 
+
 export default function App() {
   const [activeTimelineId, setActiveTimelineId] = useState<string | null>(null);
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);

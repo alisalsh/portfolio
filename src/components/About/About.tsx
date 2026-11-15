@@ -1,5 +1,5 @@
 import styles from './About.module.css';
-import photo from '../../assets/a.jpg';
+import photo from '../../assets/a00034.gif';
 
 export const About = () => {
   const hardSkills = [
@@ -54,11 +54,10 @@ export const About = () => {
 
           </div>
 
-          {/* 2. Фото */}
+          {/* 2. Гифка */}
           <div className={styles.imageWrapper}>
             <div className={styles.imageContainer}>
-              <img src={photo} className={styles.image} />
-              <div className={styles.noiseOverlay}></div>
+              <img src={photo} className={styles.image} alt="Алиса" />
             </div>
           </div>
 

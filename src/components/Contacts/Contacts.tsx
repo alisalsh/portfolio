@@ -24,6 +24,9 @@ export const Contacts = () => {
     link: string, 
     isExternal: boolean = false
   ) => {
+    // Добавили stopPropagation, чтобы TypeScript не ругался и клик не всплывал
+    e.stopPropagation();
+
     // Проверяем, есть ли выделенный текст на странице прямо сейчас
     const selection = window.getSelection();
     

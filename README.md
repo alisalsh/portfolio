@@ -102,3 +102,86 @@ my-portfolio-web
 └─ vite.config.ts
 
 ```
+```
+my-portfolio-web
+├─ eslint.config.js
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ public
+│  ├─ cases
+│  │  ├─ aaa.png
+│  │  ├─ aqua.svg
+│  │  ├─ beh.png
+│  │  ├─ crypto.svg
+│  │  └─ priv.svg
+│  ├─ copy.svg
+│  ├─ cursor.svg
+│  ├─ deeplink.svg
+│  ├─ downloadcours.svg
+│  ├─ downscrollcoursor.svg
+│  ├─ example.svg
+│  ├─ favicon.svg
+│  ├─ icons.svg
+│  ├─ lock.svg
+│  ├─ opencase.svg
+│  ├─ pr2.svg
+│  ├─ pr4.svg
+│  └─ Лушина_А_Р_ui_ux.pdf
+├─ README.md
+├─ src
+│  ├─ App.module.css
+│  ├─ App.tsx
+│  ├─ assets
+│  │  ├─ 0016.jpg
+│  │  ├─ a.jpg
+│  │  ├─ cases.svg
+│  │  ├─ contact.svg
+│  │  ├─ cv.svg
+│  │  ├─ getintouch.svg
+│  │  ├─ noncom.svg
+│  │  └─ pp.svg
+│  ├─ components
+│  │  ├─ About
+│  │  │  ├─ About.module.css
+│  │  │  └─ About.tsx
+│  │  ├─ CaseCard
+│  │  │  ├─ CaseCard.module.css
+│  │  │  └─ CaseCard.tsx
+│  │  ├─ CaseImageViewer
+│  │  │  ├─ CaseImageViewer.module.css
+│  │  │  └─ CaseImageViewer.tsx
+│  │  ├─ Contacts
+│  │  │  ├─ Contacts.module.css
+│  │  │  └─ Contacts.tsx
+│  │  ├─ Cursor
+│  │  │  ├─ Cursor.module.css
+│  │  │  └─ Cursor.tsx
+│  │  ├─ Header
+│  │  │  ├─ Header.module.css
+│  │  │  └─ Header.tsx
+│  │  ├─ Hero
+│  │  │  ├─ Hero.module.css
+│  │  │  └─ Hero.tsx
+│  │  ├─ Modal
+│  │  │  ├─ Modal.module.css
+│  │  │  └─ Modal.tsx
+│  │  ├─ Reveal
+│  │  │  ├─ Reveal.module.css
+│  │  │  └─ Reveal.tsx
+│  │  ├─ Square
+│  │  │  ├─ Square.module.css
+│  │  │  └─ Square.tsx
+│  │  └─ Timeline
+│  │     ├─ Timeline.module.css
+│  │     └─ Timeline.tsx
+│  ├─ hooks
+│  │  └─ useScrollReveal.ts
+│  ├─ index.css
+│  └─ main.tsx
+├─ tsconfig.app.json
+├─ tsconfig.json
+├─ tsconfig.node.json
+└─ vite.config.ts
+
+```
