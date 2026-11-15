@@ -1,21 +1,75 @@
 /* src/components/CaseImageViewer/CaseImageViewer.module.css */
 
 .imageWrapper {
+  position: relative;
   width: 100%;
+  min-height: 50vh; /* Чтобы лоадеру было где висеть */
   display: flex;
   justify-content: center;
-  padding: 0; /* Убрали отступы, чтобы картинка упиралась в края */
+  align-items: center;
+  padding: 0; 
   background-color: #000; 
 }
 
+/* === ЛОАДЕР (2 КРУЖОЧКА) === */
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.spinner {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+  flex-shrink: 0; /* Запрещаем сплющивание */
+}
+
+/* Большой прозрачный круг (обводка) */
+.spinner::before {
+  content: '';
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная обводка */
+  border-radius: 50%; /* Всегда круглый */
+  box-sizing: border-box;
+}
+
+/* Маленький белый кружок (хвост) */
+.spinner::after {
+  content: '';
+  position: absolute;
+  top: -4px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px; 
+  height: 10px;
+  background-color: var(--color-white);
+  border-radius: 50%; /* Всегда круглый */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Легкое свечение */
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* === КАРТИНКА КЕЙСА === */
 .caseImage {
   width: 100vw; 
   max-width: 100%; 
   height: auto;
   display: block;
   object-fit: contain;
-  
-  /* Мягкое, но четкое сглаживание */
-  image-rendering: high-quality;
-  image-rendering: auto; /* Фолбэк для старых браузеров */
+  transition: opacity 0.4s ease; /* Плавное появление */
 }
