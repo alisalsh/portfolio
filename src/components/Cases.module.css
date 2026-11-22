@@ -118,17 +118,16 @@
 .crossed .phoneLeft {
   z-index: 2;
   margin-right: -6%;
-  transform: rotate(-20deg) translateY(18px);
+  transform: rotate(-20deg) translateY(-2px);
   animation-delay: 0ms;
 }
 
 .crossed .phoneRight {
   z-index: 1;
   margin-left: -6%;
-  transform: rotate(7deg) translateY(-12px);
+  transform: rotate(7deg) translateY(-32px);
   animation-delay: 100ms;
 }
-
 /* Второй кейс — зеркальный */
 
 .offset .phoneLeft {
@@ -332,16 +331,24 @@
 
 /* Мобильная версия */
 
+
+/* Мобильная версия */
+
 @media (max-width: 480px) {
   .cases {
     padding-left: 20px;
     padding-right: 20px;
   }
 
-  .heading {
-    max-width: 78%;
-    height: 120px;
-  }
+.heading {
+  max-width: 78%;
+  height: 120px;
+}
+
+.phoneStage {
+  margin-top: -4px;
+  height: 420px;
+}
 
   .heading h2 {
     font-size: 30px;
@@ -356,10 +363,10 @@
     height: 25px;
   }
 
-  .phoneStage {
-    margin-top: -6px;
+  /* .phoneStage {
+    margin-top: 0;
     height: 420px;
-  }
+  } */
 
   .phone {
     border-radius: 27px;
@@ -397,6 +404,7 @@
     margin-bottom: 30px;
   }
 }
+
 
 /* Десктоп */
 
