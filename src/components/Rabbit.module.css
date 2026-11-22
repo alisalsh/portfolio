@@ -1,0 +1,33 @@
+
+.rabbit {
+  position: absolute;
+    top: -30px;
+  right: calc(200px - 120vw + 10vw); 
+
+  width: 700px;
+  height: 400px;
+
+  z-index: 0;
+
+  transform: scale(1);
+  transform-origin: top left;
+}
+
+.rabbit :global(canvas) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Десктоп */
+
+@media (min-width: 768px) {
+  .rabbit {
+    top: -30px;
+    right: calc((100% - 640px) / 2 - 80px);
+    width: 700px;
+    height: 400px;
+    transform: scale(1);
+      z-index: 10;
+  }
+}

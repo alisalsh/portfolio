@@ -1,0 +1,345 @@
+
+.about {
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 34px;
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.title {
+  margin: 0 0 52px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 8px;
+  row-gap: 8px;
+  width: 100%;
+  max-width: 938px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  width: 198px;
+  height: 132px;
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-black);
+  color: var(--color-white);
+  border-radius: 17px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.rabbit {
+  width: 26px;
+  height: 30px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 25px;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  white-space: pre-line;
+}
+
+.description {
+  margin-top: 48px;
+  max-width: 100%;
+  color: var(--color-gray-dark);
+  font-size: 20px;
+  line-height: 1.22;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.link {
+  position: absolute;
+  right: 18px;
+  bottom: 22px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.link img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Контакты */
+
+.contacts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  column-gap: 20px;
+  width: calc(100% - 72px);
+  max-width: 778px;
+  margin: 120px auto 0;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+
+  color: var(--color-black);
+  text-decoration: none;
+
+  font-size: 12px;
+  line-height: 1.21;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.contactIcon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactIcon img {
+  display: block;
+  object-fit: contain;
+}
+
+/* Десктоп */
+
+@media (min-width: 601px) {
+  .about {
+    padding: 100px 20px 70px;
+  }
+
+  .title {
+    margin-bottom: 48px;
+    font-size: 12px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    max-width: 640px;
+  }
+
+  .card {
+    width: 100%;
+    height: 190px;
+    padding: 24px;
+    gap: 0;
+    border-radius: 18px;
+  }
+
+  .cardHeader {
+    align-items: center;
+    gap: 14px;
+  }
+
+  .rabbit {
+    width: 36px;
+    height: 42px;
+  }
+
+  .cardHeader h3 {
+    font-size: 16px;
+    line-height: 1.21;
+        letter-spacing: -0.02em;
+  }
+
+  .description {
+    margin-top: 20px;
+    margin-bottom: 4px;
+    max-width: calc(100% - 35px);
+    font-size: 14px;
+    line-height: 1.21;
+    letter-spacing: -0.02em;
+  }
+
+  .link {
+    right: 20px;
+    bottom: 20px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .contacts {
+    width: 100%;
+    max-width: 640px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+    column-gap: 12px;
+    margin: 72px auto 0;
+  }
+
+  .contact {
+    gap: 12px;
+    font-size: 14px;
+    letter-spacing: -0.025em;
+    justify-self: center;
+  }
+
+  .contactIcon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Мобильная версия — оставлена без изменений */
+
+@media (max-width: 600px) {
+  .about {
+    padding: 60px 20px 30px;
+  }
+
+  .title {
+    margin-bottom: 32px;
+    font-size: 12px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 198px);
+    column-gap: 4px;
+    row-gap: 4px;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .card {
+    position: relative;
+    width: 198px;
+    height: 132px;
+    padding: 14px 0 14px 14px;
+    gap: 4px;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-black);
+    color: var(--color-white);
+    border-radius: 8px;
+  }
+
+  .cardHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .rabbit {
+    width: 23px;
+    height: 27px;
+  }
+
+  .cardHeader h3 {
+    font-size: 12px;
+    line-height: 1.21;
+    letter-spacing: -0.02em;
+  }
+
+  .description {
+    margin-top: 12px;
+    font-size: 10px;
+    line-height: 1.21;
+    letter-spacing: -0.02em;
+    padding-right: 14px;
+  }
+
+  .link {
+    width: 23px;
+    height: 23px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  /* Контакты всегда в одну строку */
+
+  .contacts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 0;
+  }
+
+  .contact {
+    gap: 7px;
+    font-size: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .contactIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .card {
+    padding: 14px 9px;
+  }
+
+  .cardHeader {
+    gap: 7px;
+  }
+
+  .rabbit {
+    width: 27px;
+    height: 34px;
+  }
+
+  .cardHeader h3 {
+    font-size: 12px;
+  }
+
+  .description {
+    font-size: 11px;
+  }
+
+  .contacts {
+    gap: 5px;
+  }
+
+  .contact {
+    gap: 5px;
+    font-size: 8px;
+  }
+
+  .contactIcon {
+    width: 25px;
+    height: 25px;
+    border-radius: 7px;
+  }
+}

@@ -1,0 +1,438 @@
+
+.cases {
+  width: 100%;
+  padding-top: 0;
+  margin-top: 0;
+  background: var(--color-white);
+  color: var(--color-black);
+  overflow: hidden;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.topLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.details {
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+.heading {
+  margin-top: 14px;
+  height: 120px;
+  overflow: visible;
+}
+
+.heading h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 1000;
+  letter-spacing: -2%;
+}
+
+.heading p {
+  margin-top: 6px;
+  color: var(--color-gray-light);
+  font-size: 12px;
+  line-height: 1.21;
+  font-weight: 500;
+  letter-spacing: -2%;
+  width: 222px;
+}
+
+.deepLink {
+  position: absolute;
+  top: 28px;
+  right: 10px;
+  z-index: 2;
+  width: 74px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deepLink img {
+  display: block;
+  width: 74px;
+  height: 74px;
+}
+
+.caseContent {
+  animation: none;
+}
+
+/* Центральный контейнер мокапов */
+
+.phoneStage {
+  position: relative;
+  width: calc(100% - 72px);
+  margin: 18px auto 0;
+  height: 530px;
+}
+
+.phones {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+/* Телефоны */
+
+.phone {
+  position: relative;
+  width: 52%;
+  aspect-ratio: 0.48;
+  flex-shrink: 0;
+  min-width: 0;
+  border-radius: 34px;
+  background: transparent;
+  box-shadow: none;
+  filter: none;
+
+  animation: phoneRise 1000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform;
+}
+
+/* Первый кейс */
+
+.crossed .phoneLeft {
+  z-index: 2;
+  margin-right: -6%;
+  transform: rotate(-20deg) translateY(18px);
+  animation-delay: 0ms;
+}
+
+.crossed .phoneRight {
+  z-index: 1;
+  margin-left: -6%;
+  transform: rotate(7deg) translateY(-12px);
+  animation-delay: 100ms;
+}
+
+/* Второй кейс — зеркальный */
+
+.offset .phoneLeft {
+  z-index: 1;
+  margin-right: -6%;
+  transform: rotate(-7deg) translateY(-12px);
+  animation-delay: 100ms;
+}
+
+.offset .phoneRight {
+  z-index: 2;
+  margin-left: -6%;
+  transform: rotate(20deg) translateY(18px);
+  animation-delay: 0ms;
+}
+
+/* Прямое расположение */
+
+.straight .phoneLeft {
+  z-index: 1;
+  margin-right: -6%;
+  transform: rotate(-4deg) translateY(8px);
+  animation-delay: 0ms;
+}
+
+.straight .phoneRight {
+  z-index: 2;
+  margin-left: -6%;
+  transform: rotate(4deg) translateY(-8px);
+  animation-delay: 100ms;
+}
+
+/* Экраны телефонов */
+
+.phoneScreen {
+  position: absolute;
+  inset: 6px;
+  overflow: visible;
+  border: 0;
+  padding: 0;
+  border-radius: 22px;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  appearance: none;
+}
+
+.phoneScreen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.18));
+}
+
+/* Смена экранов после предварительной загрузки */
+
+.screenImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Иконки change.svg */
+
+.screenSwitch {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 17px;
+  height: 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+
+  opacity: 0;
+  animation: iconRise 1000ms cubic-bezier(0.22, 1, 0.36, 1) 650ms both;
+}
+
+.screenSwitch img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.screenSwitch:disabled {
+  cursor: default;
+}
+
+/* Стрелки карусели */
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+
+  width: 26px;
+  height: 26px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  transform: translateY(-50%);
+  transition: transform 180ms ease;
+}
+
+.arrow img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.arrow:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+.arrowLeft {
+  left: -32px;
+}
+
+.arrowLeft img {
+  transform: scaleX(-1);
+}
+
+.arrowRight {
+  right: -32px;
+}
+
+/* Индикаторы свайпа */
+
+.swipeIndicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.indicator {
+  width: 5px;
+  height: 5px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: #D8D8D8;
+  cursor: pointer;
+
+  transition:
+    width 250ms ease,
+    background-color 250ms ease;
+}
+
+.indicatorActive {
+  width: 14px;
+  background: #000000;
+}
+
+/* Анимация мокапов */
+
+@keyframes phoneRise {
+  from {
+    translate: 0 28px;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+/* Появление иконок */
+
+@keyframes iconRise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Мобильная версия */
+
+@media (max-width: 480px) {
+  .cases {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .heading {
+    max-width: 78%;
+    height: 120px;
+  }
+
+  .heading h2 {
+    font-size: 30px;
+  }
+
+  .heading p {
+    font-size: 14px;
+  }
+
+  .deepLink {
+    width: 25px;
+    height: 25px;
+  }
+
+  .phoneStage {
+    height: 420px;
+  }
+
+  .phone {
+    border-radius: 27px;
+    background: transparent;
+    box-shadow: none;
+    filter: none;
+  }
+
+  .phoneScreen {
+    inset: 6px;
+    border-radius: 22px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .arrow {
+    width: 26px;
+    height: 26px;
+  }
+
+  .arrowLeft {
+    left: -32px;
+  }
+
+  .arrowRight {
+    right: -32px;
+  }
+
+  .swipeIndicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+}
+
+/* Десктоп */
+
+@media (min-width: 601px) {
+  .heading p {
+    width: 280px;
+  }
+
+  .phoneStage {
+    margin-top: 28px;
+    margin-bottom: 110px;
+  }
+
+  .topLine {
+    min-height: 28px;
+  }
+
+  .deepLink {
+    top: 40px;
+    right: 0;
+    width: 28px;
+    height: 28px;
+  }
+
+  .deepLink img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Уменьшение анимации */
+
+@media (prefers-reduced-motion: reduce) {
+  .phone,
+  .screenSwitch {
+    animation: none;
+    opacity: 1;
+    translate: none;
+  }
+}

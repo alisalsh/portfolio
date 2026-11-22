@@ -1,0 +1,85 @@
+
+.header {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  padding: 20px 20px 0;
+  margin-bottom: 80px;
+  background: #FFFFFF;
+  color: var(--color-black);
+  isolation: isolate;
+  z-index: 1;
+}
+
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 20px;
+  align-content: start;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.experience {
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.experience p {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  line-height: 1.21;
+  letter-spacing: -2%;
+}
+
+.experience strong {
+  font-weight: 600;
+}
+
+.experience span {
+  color: var(--color-gray-light);
+  font-weight: 500;
+}
+
+.title {
+  grid-column: 1 / -1;
+  margin-top: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.title h1 {
+  font-size: 30px;
+  line-height: 0.98;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  padding:0;
+  margin-bottom: 4px;
+  line-height: 1;
+}
+
+
+
+/* Десктоп */
+
+@media (min-width: 768px) {
+  .header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .grid {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

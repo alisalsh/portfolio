@@ -1,86 +1,120 @@
-/* src/index.css */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+
+/* =========================
+   DESIGN TOKENS
+========================= */
+
+:root {
+  /* Colors */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-pink: #F8C7DC;
+
+  --color-gray-dark: #949494;
+  --color-gray-light: #797777;
+
+  /* Typography */
+  --font-main: 'Onest', sans-serif;
+
+  /* Font weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Base */
+  font-family: var(--font-main);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: var(--color-black);
+  background: var(--color-white);
 }
 
+/* =========================
+   RESET
+========================= */
+
 * {
-  cursor: none !important;
-  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-html {
-  scrollbar-gutter: stable; /* Заставляет браузер всегда оставлять место под скроллбар */
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: 'Onest', Arial, sans-serif; /* Arial есть везде и выглядит предсказуемо */
-}
-body {
+  min-width: 320px;
   min-height: 100vh;
-  font-family: 'Onest', system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
-  color: #000000;
-  background-color: #ffffff;
-  -webkit-font-smoothing: antialiased;
-  cursor: none; 
   overflow-x: hidden;
 }
 
-a, button, input, textarea, .square {
-  cursor: none !important; 
+body,
+button,
+input,
+textarea {
+  font-family: var(--font-main);
 }
 
-:root {
-  --color-black: #000000;
-  --color-white: #ffffff;
-  --color-white-50: rgba(255, 255, 255, 0.5);
-  --container-max: 1880px;
-  --container-padding: 24px;
+button,
+input,
+textarea {
+  font-size: inherit;
 }
 
-.container {
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* =========================
+   GLOBAL UTILITIES
+========================= */
+
+#root {
   width: 100%;
-  max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
+  min-height: 100vh;
 }
-
-.layout-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 0px; 
-  padding: 0 20px; 
-  width: 100%;
-}
-
 
 ::selection {
-  background-color: #F8C7DC; /* Нежно-розовый цвет фона (LightPink) */
-  color: #000000;            /* Черный цвет текста */
+  color: var(--color-black);
+  background: var(--color-pink);
 }
 
-/* МОБИЛЬНАЯ ВЕРСИЯ */
-@media (max-width: 768px) {
-  .container {
-    padding-left: 8px; 
-    padding-right: 8px;
-  }
-  
-  .layout-grid {
-    column-gap: 0px;
-    padding: 0 4px;
-    align-content: start; /* Не дает строкам растягиваться на всю высоту */
-  }
+/* Remove default tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
