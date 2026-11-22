@@ -1,23 +1,60 @@
 
+import { useEffect, useRef, useState } from 'react';
 import Spline from '@splinetool/react-spline';
-import type { Application } from '@splinetool/runtime';
 import styles from './Rabbit.module.css';
 
-function Rabbit() {
-  function handleLoad(spline: Application) {
-    const rabbit = spline.findObjectByName('Bunny Avatar');
+const SCENE_URL =
+  'https://prod.spline.design/T2-gIfBY8qgCq0yY/scene.splinecode';
 
-    if (rabbit) {
-      console.log('Rabbit connected:', rabbit.name);
-    }
-  }
+function Rabbit() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    const element = containerRef.current;
+
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: '200px',
+        threshold: 0,
+      }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const element = containerRef.current;
+
+    if (!element) return;
+
+    const stopSplineWheel = (event: WheelEvent) => {
+      event.stopPropagation();
+    };
+
+    element.addEventListener('wheel', stopSplineWheel, {
+      capture: true,
+      passive: true,
+    });
+
+    return () => {
+      element.removeEventListener('wheel', stopSplineWheel, true);
+    };
+  }, []);
 
   return (
-    <div className={styles.rabbit}>
-      <Spline
-        scene="https://prod.spline.design/T2-gIfBY8qgCq0yY/scene.splinecode"
-        onLoad={handleLoad}
-      />
+    <div ref={containerRef} className={styles.rabbit}>
+      {shouldLoad && <Spline scene={SCENE_URL} />}
     </div>
   );
 }

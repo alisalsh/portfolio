@@ -19,6 +19,10 @@
   height: 100%;
 }
 
+.rabbit :global(canvas) {
+  touch-action: pan-y;
+}
+
 /* Десктоп */
 
 @media (min-width: 768px) {
@@ -29,5 +33,15 @@
     height: 400px;
     transform: scale(1);
       z-index: 10;
+  }
+}
+
+/* Десктоп с небольшой шириной экрана */
+@media (min-width: 768px) and (max-width: 950px) {
+  .rabbit {
+    right: calc((100% - 640px) / 2 - 40px);
+    width: 600px;
+    height: 343px;
+    transform: scale(1);
   }
 }
